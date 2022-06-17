@@ -1,15 +1,19 @@
 = Bandit 3 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
 
 == Objective
-Printing the contents of the directory shows a file with spaces in the file name.
+*bandit3* has you finding a funky file name again. This time the file name has spaces in the name. If you put a file name with spaces in the name the terminal accepts the different words in the frame each as a file but *cat* will only cat the first file because the list is not delimited. Printing the contents of the directory shows a file with spaces in the file name.
 
-One method is to use the tab function to auto-populate the file name.
+== Get the Flag
+One method is to use the tab function to auto-populate the file name. Start typing the first few letters of the file name and press tab for the auto-complete to fill out the file name for you. When you type *cat*, then press space, and then tab, the file name populates with backslashes escaping the spaces in the files name.
 
-When you type cat spaces and press tab the file name populates with backslash escaping the spaces in the files name.
+Another way to view the file with spaces in the name is to put the file name in single or double quotes after the cat command. That tells the terminal to read it as it is, as a literal.
 
-Another way to view the file with spaces in the name is to put the file name in single or double quotes after the cat command. That tells the terminal to read it as it is.
+ cat 'file with spaces in the name.txt'
+
+Copy the flag into your next file and change your command in *sshpass* and log into the next machine.

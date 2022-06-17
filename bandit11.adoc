@@ -1,15 +1,19 @@
 = Bandit 11 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
 
 == Objective
-The flag for bandit11 is in a *data.txt* file that contains base64 endoded data. For this we pipe the *data.txt* file into *base64* with the decode flag, *-d*.
+The flag for bandit11 is in a *data.txt* file that contains base64 endoded data. 
+
+== Get the Flag
+For this flag we pipe the *data.txt* file into *base64* with the decode trigger, *-d*.
 
 The command is:
 
-*cat data.txt | base64 -d*
+ cat data.txt | base64 -d
 
-This will decode the base64 string and give you the password in a phrase.
+This will decode the base64 string and give you the password in a phrase. Copy your password and creat your password file. Change your command to get into the next level.

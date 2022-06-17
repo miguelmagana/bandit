@@ -1,15 +1,19 @@
 = Bandit 12 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
 
 == Objective
-The password for bandit13 is stored in a *data.txt* file where all lowercase and uppercase letters have been rotated by 13 positions.
+The password for *bandit13* is stored in a *data.txt* file where all lowercase and uppercase letters have been rotated by 13 positions.
 
-This is known as ROT13 encoding. A ceasar cypher. One way to find the flag is to input the string into a web based ROT13 decoder to get the string. This is not as fun as using the command line. 
+== Get the Flag
+This is known as ROT13 encoding or a ceasar cypher. One way to find the flag is to input the string into a web based ROT13 decoder to get the string. This is not as fun as using the command line. 
 
 In order to decode ROT13 you need to verify you have the correct tools installed. Install *bsdgames* in order to get *rot13* and *caesar* packages to be able to decode different cyphers.
 
-Once *rot13* is installed you echo the string in "" into stdin and pipe that into *rot13*. The phrase with the password will be displayed.
+Once *rot13* is installed you echo the string in *""* into *stdin* and pipe that into *rot13*. The phrase with the password will be displayed.
+
+Copy the flag and create your password file then change your command to get into the next level.

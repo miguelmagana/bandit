@@ -1,23 +1,27 @@
 = Bandit 0 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
-
-== Objective
+== The Objective
 This level teaches you how to connect to a host using SSH. The directions on level 0 give the instructions for the command needed to SSH into the level 0 machine to get the next level's password.
 
+== Getting the Flag
 In order to SSH into the machine you need to open a terminal then input the SSH command:
 
-ssh bandit0@bandit.labs.overthewire.org -p 2220
+ ssh bandit0@bandit.labs.overthewire.org -p 2220
 
-Create a bandit0 file and store the password inside the file. Using sshpass -p and backticks to echo the password into sshpass followed by the ssh command to be used to login. Use the reglar command first to setup initial settings then use sshpass to speed up the process.
+Create a *bandit0* file and store the password inside the file. Using *sshpass -p* and backticks to echo the password into *sshpass* followed by the ssh command to be used to login. 
 
-sshpass -p `cat bandit0` ssh bandit0@bandit.labs.overthewire.org -p 2220
+TIP: Use the reglar command first to setup initial settings then use sshpass to speed up the process.
 
-Once logged into bandit0 you get a long list of tips and tricks for the rest of the games. Please read the etiquette and follow the rules. Working folders /temp/<your name> can be used but be sure to clean up and sanitize after the game is complete.
+ sshpass -p `cat bandit0` ssh bandit0@bandit.labs.overthewire.org -p 2220
 
-After logging into bandit0 you go to the level 1 instructions to find the flag for the next level and so on. 
+Once logged into *bandit0* you get a long list of tips and tricks for the rest of the games to help you find the rest of the flags. Please read the etiquette and follow the rules. Working folders /temp/<your name> can be used but be sure to clean up and sanitize after the game is complete.
+
+After logging into *bandit0* you go to the level 1 instructions to find the flag for the next level and so on. 
 
 This marks the end of level 0.
+

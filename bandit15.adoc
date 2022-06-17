@@ -1,0 +1,20 @@
+= Bandit 15 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+== Objective
+The password for *bandit15* is retrieved by submitting the password of the current level to port 30000 on localhost.
+
+== Get the Flag
+In order to connect to the port you can use *netcat*. The command will be:
+
+ nc localhost 30000
+
+WARNING: When you first hit enter *_nothing happens_*. There is no prompt to enter a password. Just enter the password and press enter. Remember the password is in */etc/bandit_pass/bandit14*. You can *cat* the file and copy the password then use *netcat* and iput the password. An easier way is to pipe the password straight into netcat.
+
+ cat /etc/bandit_pass/bandit14 | nc localhost 30000
+
+If you entered it correctly you will get a prompt saying correct and the password will be displayed. Create your password file and change your command for the next level.

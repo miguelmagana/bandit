@@ -1,17 +1,21 @@
 = Bandit 5 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
 
 == Objective
-The bandit5 flag is in a the only human readable file. *cd* into the 'inhere' directory and *ls* the files to see a list of files.
+The *bandit5* flag is in the only human readable file. 
 
-You will notice that all of the files have a hyphen in the name. *./* will have to be used to be able to view the file. If you *cat* the files you will notice that they are gibberish. One will be the flag.
+== Get the Flag
+*cd* into the *_inhere_* directory and *ls* the files to see a list of files.
+
+You will notice that all of the files have a hyphen in the name. Use *_./_* to be able to view the file. If you *cat* the files you will notice that they are gibberish. One will be the flag.
 
 An easier way to find which file has the human readable text is to use the *file* command with the asterisk wildcard to list all of the files in this format:
 
 *file ./<asterisk>*
 
-This will list the file types which will list one that is different from the others. That is the flag. *cat* that file out for the flag.
+This will list the file types which will list the one that is different from the others. That is the flag. *cat* that file out for the flag. Create your next password file and change your command to get into the next level.

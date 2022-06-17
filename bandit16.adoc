@@ -1,0 +1,25 @@
+= Bandit 16 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+== Objective
+The password for *bandit16* can be retrieved by submitting the password of the current level to port *30001* on *localhost* using SSL encryption.
+
+== Get the Flag
+NOTE: Getting "HEARTBEATING" and "Read R BLOCK"? Use *-ign_eof* and read the "CONNECTED COMMANDS" section in the manpage. Next to 'R' and 'Q', the 'B' command also works in this version of that command
+
+The recommended commands are *ssh*, *telnet*, *nc*, *openssl*, *s_client*, *nmap* in order to find the flag.
+
+For this flag using SSL encryption we have to use *openssl* and the *s_client* command to connect in the same fashion that you use netcat to connect to a raw socket.
+
+ openssl s_client -connect localhost:30001
+
+The connection happens in the same way as *netcat* where it does not give you a prompt to enter a password after you see all the encryption data fly through the terminal. Enter the password from *cat /etc/bandit_pass/bandit15* after the data scrolls by and stops. 
+
+Easier method is to use the note that is recommended by putting *-ing_eof* at the end of the command but piping the catted file into *openssl*. If you do not use the *-ing_eof* trigger then you may get the HEARTBEATING error. The command would look like this:
+ cat /etc/bandit_pass/bandit15 openssl s_client -connect localhost:30001 -ing_eof
+
+You get the *correct!* prompt and the password to the next level. Create your password file and change your command to get into the next level.

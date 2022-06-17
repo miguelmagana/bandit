@@ -1,17 +1,19 @@
 = Bandit 1 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
 
 == Objective
-After logging into bandit0 you are working to get the flag for level 1 to get to level 2. 
+After logging into *bandit0* you are working to get the flag for level 1 to get to level 2. Each level has the flag for the next level.
 
-Each level will give you a hint on how to solve each level. Level 1 familiarizes you with the ls, cat, cd, file, du, and find commands.
+Each level will give you a hint on how to solve each level. *bandit1* familiarizes you with the *_ls_*, *_cat_*, *_cd_*, *_file_*, *_du_*, and *_find_* commands.
 
-Use these commands to navigate through the file system to find the first flag. 
+== Getting the Flag
+Use these commands to navigate through the file system to find the first flag. Use the *ls* command to list the files in the current working directory. You will see a *data.txt* file in your directory. The flag is going to be in this file. You need to *cat* the file to get the flag to move onto the next level.
 
-The hint given is a readme file so find a way to read the contents of the readme file that you located using the ls command.
+The long number that you get from using *cat* to view the file is the flag. Copy this flag and put it into a *bandit2* file so that you can echo this password into *sshpass*.
 
-Once you have the flag use it to login to the next level by changing the sshpass command to reflect the next level.
+Once you have the flag use it to login to the next level by changing the sshpass command to reflect the next level. Change the *banditX* number of the username and the number of the bandit in the domain name then you can hit enter to SSH into the next box.

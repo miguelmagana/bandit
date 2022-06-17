@@ -1,15 +1,18 @@
 = Bandit 9 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
-
 == Objective
-The bandit9 flag is in a file called *data.txt* and is the only line of text that occurs once.
+The *bandit9* flag is in a file called *data.txt* and is the only line of text that occurs once.
 
-This flag can be filtered using the *uniq* command with *sort* in a chain to filter out to find the correct flag. Then this output is piped into grep but inverting the output and telling it to not give us "10". The command goes like this:
+== Get the Flag
+This flag can be filtered using the *uniq* command with *sort* in a chain to filter out to find the correct flag. Then this output is piped into *grep* but inverting the output and telling it to _not_ give us *10*. The command goes like this:
 
-*cat data.txt | sort | grep -v "10"*
+ cat data.txt | uniq | sort | grep -v "10"
 
-This command will filter all the lines out except for the one that is seen only once.
+This command will filter all the lines out except for the one that is seen only once. If you do not sort and filter *10* then you will get lots of lines where the string is seen *10* times and there will be one line that will have *1* next to it. This is your flag. Grepping the output leaves only the line with *1*.
+
+Create your password file and change your command numbers to get into the next level.

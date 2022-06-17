@@ -1,27 +1,34 @@
 = Bandit 13 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
-
 == Objective
-The flag for bandit13 is a fun one. It is buried deep. The flag is in a data.txt file that is a hex dump and has been repeatedly compressed. The goal is to reverse the hex dump into a file that is usable then determine which file type is left to decompress.
+The flag for *bandit13* is a fun one. It is buried deep. The flag is in a *data.txt* file that is a hex dump that has been repeatedly compressed. The goal is to reverse the hex dump into a file that is usable then determine which file type is left to decompress.
 
+== Get the Flag
 Reversing the hex dump is easy using the *xxd* command with *-r* flag for reverse. 
 
-*xxd -r data.txt <output.file>*
+ xxd -r data.txt <output.file>
 
-The file that is output from reversing the hex dump is a compressed file. Use the *file* command to determine which type of file to manipulate. The first compression is *gzip* which is unzipped using the *gunzip* command. Before you can unzip the file you need to use the *mv* command to change the file to a *.gz* file type in order for gunzip to be able to unzip it.
+The file that is output from reversing the hex dump is a compressed file. Use the *file* command to determine which type of file to manipulate. The first compression is *gzip* which is unzipped using the *gunzip* command. 
 
-Once you unzip it using gunzip you run the file command again to determin the next compression method. 
+TIP: Before you can unzip the file you need to use the *mv* command to change the file to a *.gz* file type in order for gunzip to be able to unzip it.
 
-The next compression method was *bzip2*. Use the *bzip2 -d* command to decompress the new file. The new file will be labled with a .out extension unless you provide one. Run the file command against the new file to determine the next compression method.
+Once you unzip it using *gunzip* you run the *file* command again to determine the next file type which is another compression method. 
 
-The next compression was *gzip* again so follow the same process as above.
+The next compression method was *bzip2*. Use the *bzip2 -d* command to decompress the new file. The new file will be labled with a *_.out_* extension unless you provide one by adding it to your file name in the command. 
 
-The next compression method was *tar*. 
+Run the *file* command against the new file to determine the next file type which is another compression method.
 
-*tar -xvf <new file>*
+The next compression was *gzip* again so follow the same process as above. Use *file* again to deterine the file type which is another compression type.
 
-Continue to decompress the file until you get to the last data file. Once you get the file type that says ASCII then you know you have reached the last decompression. *cat* the file to get the next flag.
+The next compression method was *tar*. Decompress the file with:
+
+ tar -xvf <new file>
+
+Continue to decompress the file until you get to the last data file. Once you get the file type that says *ASCII* then you know you have reached the last decompression. *cat* the file to get the next flag.
+
+Create your next password file and change you command to get into the next level.

@@ -1,17 +1,18 @@
 = Bandit 14 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
-
 == Objective
-The password for bandit15 is stored in */etc/bandit_pass/bandit14*
+The password for *bandit14* is stored in */etc/bandit_pass/bandit14*
 
+== Get the Flag 
 For this level you do not get the next password but you get a private SSH key that can be used to log into the next level. *localhost* refers to the machine you are working on.
 
-The SSH key provided allows you to SSH into bandit14 using localhost to cat the flag out of bandit14.
+The SSH key provided allows you to SSH into *bandit14* using localhost to *cat* the flag out of *bandit14*.
 
-*ssh -i <sshkey.file> bandit14@localhost*
+ ssh -i <sshkey.file> bandit14@localhost
 
-Once logged into bandit14 *cat /etc/bandit_pass/bandit14* to get the next flag.
+Once logged into bandit14 *cat /etc/bandit_pass/bandit14* to get the next flag. Copy the flag and create your password file then change your command to get into the next level.

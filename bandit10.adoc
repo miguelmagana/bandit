@@ -1,11 +1,17 @@
 = Bandit 10 Writeup
 Miguel Magana <m1k3.0xd@gmail.com>
 v1.0, 2022-06-07
+:toc: auto
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
 
 == Objective
-The flag for bandit10 is located in a file called *data.txt*. The file has to be catted out and piped into another command to filter out the flag in a string of filtering commands. 
+The flag for *bandit10* is located in a file called *data.txt*. The file has to be catted out and piped into another command to filter out the flag in a string of filtering commands.
 
-In this case we want to use strings. You can grep for the "==" but you don't know how many they put onto the string. It is still possible to find it this way. Using *strings* puts all the characters together and the text becomes easier to read. The flag will be located after several "=". From this point you can *grep* the "==" to find the only lines that contain the '=.'
+== Get the Flag
+In this case we want to use *strings*. You can grep for the *_==_* but you don't know how many they put into the string. It is still possible to find it this way but takes more effort searching manually. 
+
+Using *strings* puts all the characters together and the text becomes easier to read. The flag will be located after several *_=_* signs. From this point you can *grep* the *_==_* to find the only lines that contain the *=*.
+
+Copy your password and create your password file then change your command numbers to get into the next level.
