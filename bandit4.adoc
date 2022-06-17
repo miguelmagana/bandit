@@ -1,0 +1,17 @@
+= Bandit 4 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+The flag for bandit4 is inside a directory called /inhere.
+
+*cd* into the directory. Start typing 'in' then press tab to autocomplete the directory path and press enter.
+
+When you *ls* into the directory nothing appears because the file is hidden. Use the *ls -la* command to display all files in long list format.
+
+After listing the hidden file you notice that it has a dot in front of the name. This makes all files or directories hidden.
+
+*cat* the hidden file by putting the period in front. You can tab autocomplete the same by putting the period then typing part of the file name. 

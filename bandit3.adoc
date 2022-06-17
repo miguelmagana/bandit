@@ -1,0 +1,15 @@
+= Bandit 3 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+Printing the contents of the directory shows a file with spaces in the file name.
+
+One method is to use the tab function to auto-populate the file name.
+
+When you type cat spaces and press tab the file name populates with backslash escaping the spaces in the files name.
+
+Another way to view the file with spaces in the name is to put the file name in single or double quotes after the cat command. That tells the terminal to read it as it is.

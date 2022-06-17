@@ -1,0 +1,15 @@
+= Bandit 2 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+Bandit2 texts your skills in navigating the file system and locating a file with a dash in the name. Googling the helpful search will provide the answer.
+
+In order to view the dashed file name you need to use the relative path:
+
+./- 
+
+If you do not use the relative path using the 'cat -' is recognized as another command and not a file which takes you straight into stdin.

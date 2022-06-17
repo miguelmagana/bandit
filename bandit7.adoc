@@ -1,0 +1,15 @@
+= Bandit 7 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+The bandit7 flag is a file that is owned by a specific user, and a specific group, and it is 33 bytes in size.
+
+In order to find the correct file you use the *find* command with the *-size 33c* to limit all to that size then set the *-user bandit7* to limit files to that user, then set the *-group bandit6* command to limit to that group. 
+
+The output will have a large number of errors and permission denied which all come through stderr. Those are filtered as #2. In order to cleanup the output pass the ouput from the *find* command and add *2> /dev/null* which dumps all stderr messages into the abyss of /dev/null.
+
+Once you get this output you can cat out the file that is filtered out for the flag to the next level.

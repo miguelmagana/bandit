@@ -1,0 +1,17 @@
+= Bandit 1 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+After logging into bandit0 you are working to get the flag for level 1 to get to level 2. 
+
+Each level will give you a hint on how to solve each level. Level 1 familiarizes you with the ls, cat, cd, file, du, and find commands.
+
+Use these commands to navigate through the file system to find the first flag. 
+
+The hint given is a readme file so find a way to read the contents of the readme file that you located using the ls command.
+
+Once you have the flag use it to login to the next level by changing the sshpass command to reflect the next level.

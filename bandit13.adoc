@@ -1,0 +1,27 @@
+= Bandit 13 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+The flag for bandit13 is a fun one. It is buried deep. The flag is in a data.txt file that is a hex dump and has been repeatedly compressed. The goal is to reverse the hex dump into a file that is usable then determine which file type is left to decompress.
+
+Reversing the hex dump is easy using the *xxd* command with *-r* flag for reverse. 
+
+*xxd -r data.txt <output.file>*
+
+The file that is output from reversing the hex dump is a compressed file. Use the *file* command to determine which type of file to manipulate. The first compression is *gzip* which is unzipped using the *gunzip* command. Before you can unzip the file you need to use the *mv* command to change the file to a *.gz* file type in order for gunzip to be able to unzip it.
+
+Once you unzip it using gunzip you run the file command again to determin the next compression method. 
+
+The next compression method was *bzip2*. Use the *bzip2 -d* command to decompress the new file. The new file will be labled with a .out extension unless you provide one. Run the file command against the new file to determine the next compression method.
+
+The next compression was *gzip* again so follow the same process as above.
+
+The next compression method was *tar*. 
+
+*tar -xvf <new file>*
+
+Continue to decompress the file until you get to the last data file. Once you get the file type that says ASCII then you know you have reached the last decompression. *cat* the file to get the next flag.

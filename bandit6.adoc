@@ -1,0 +1,17 @@
+= Bandit 6 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+
+== Objective
+The flag for bandit6 is inside the 'inhere' directory. It has specific perameters. 
+
+The easiest way to find the file within all the directories and different files is to use the *find* command with the correct flags to filter to the correct file.
+
+Using the *\!* is considered a not flag. Put with the *-executable* flag searches for non-executable files. Then using the *-size* flag to filter the size and using the *c* flag for bytes. The command looks like this:
+
+find \! -executable -size 1033c
+
+This command will find the non-executable 1033 file location which should be the flag. *cat* the file to see if it is the correct one.
