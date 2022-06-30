@@ -1,0 +1,34 @@
+= Bandit 20 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== Objective
+To gain access to *bandit20*, you should use the setuid binary in the homedirectory. 
+
+NOTE: Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+
+== Get the Flag
+For this flag you are temporarily elevating priveledges to run the setuid binary that is owned by another user, in this case *bandit20*. When you *ls* the directory you will notice the *bandit20-do* binary that is highlighted in red. Using the *ls -la* command for a detailed listing you notice the owner is *bandit20* and the "*s*" bit is set to signify *setuid*.
+
+Execute the binary by putting *./* in front:
+
+ ./bandit20-do
+
+image::src/images/Bandit20-setuid.png[]
+
+This command wil throw an error to add *id* which will run an instance where you are *bandit20*.
+
+ ./bandit20-do id
+
+image::src/images/Bandit20-id.png[]
+
+After running this command you will get indication that your 'effective UID' (euid) is set to *bandit20*. You can now execute the binary with the command to cat out the flag.
+ 
+ ./bandit-do cat /etc/bandit_pass/bandit20
+
+This will run the command as *bandit20* and will reveal the flag. Create your password file and change your command to get into the next level.

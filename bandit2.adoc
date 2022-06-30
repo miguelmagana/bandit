@@ -5,6 +5,7 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
 
 == Objective
 *bandit2* tests your skills in navigating the file system and locating a file with a dash in the name. Googling the "finding a file starting with a dash" will be a helpful search and will provide the answer.

@@ -1,0 +1,31 @@
+= Bandit 23 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== Objective
+To get the flag for *bandit23* a program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+NOTE: Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.
+
+== Get the Flag
+This one is very similar to the last where you will have to look in */etc/crond.d/* to find multiple cron jobs. Find the one that is labeled for *bandit23*. Check the permissions in order to see what we are allowed to do with the file.
+
+ ls -l /etc/cron.d/cronjob_bandit23.sh
+
+Using Vim you can view the code to see that running the script copies the password to a file for you.
+
+ vim /etc/cron.d/cronjob_bandit23.sh
+
+ :q! # To quite without saving
+
+You will notice that you can execute the script. It is a Bash script so you can run it using normal Bash commands.
+
+ bash /etc/cron.d/cronjob_bandit23.sh
+
+After running the script you will get a prompt with the temporary file. *cat* that file for the flag for *bandit23*. Create your password file and change your command to get into the next level.
+

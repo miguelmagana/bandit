@@ -1,0 +1,36 @@
+= Bandit 21 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== Objective
+The next flag is similar to the last where there is a setuid binary in the homedirectory that does the following: 
+    
+    * It makes a connection to localhost on the port you specify as a commandline argument 
+    
+    * It then reads a line of text from the connection and compares it to the password in the previous level, *bandit20*. 
+    
+If the password is correct, it will transmit the password for the next level, *bandit21*.
+
+NOTE: Try connecting to your own network daemon to see if it works as you think.
+
+== Get the Flag
+Similar to the last level you have to run a setuid binary that will send you the *bandit21* flag after inputing the flag of the current level, *bandit20*. You will need to have two terminals open that are both SSH'ed into *bandit20*. One of the connections will run the setuid binary with the port that we specify and the other will be a listener to accept the response of the binary.
+
+I use tmux to split my window into panes. I logged one pane into *bandit20* and setup the command prompt to run the binary.
+
+ ./suconnect 8888
+
+The second pane I ran a netcat listenter on the same port.
+
+ nc -lvp 8888
+
+Once netcat is listening execute the binary. Have the *bandit20* flag ready to copy and past into the listener after you get a connection.
+
+NOTE: You will not be prompted to input the password. The prompt will blink on a blank line. Use _ctrl+v_ to paste the flag in for the binary to spit out the flag for *bandit21*.
+
+Create your password file and change the command to get into the next level.

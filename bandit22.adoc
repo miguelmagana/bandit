@@ -1,0 +1,26 @@
+= Bandit 22 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== Objective
+To get the next flag a program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+== Get the Flag
+As the objective states you have to look in the */etc/cron.d/* directory. Within this directory you will see multiple cron jobs. The one that we are interested in is the one that has *22* in the label.
+
+So...
+
+ cd /etc/cron.d/
+
+ ls -l /tmp/<file>
+
+You will notice that you have read permission for the temp file.
+
+ cat /tmp/<long number>
+
+The flag for the next level will be displayed in the prompt. Create your password file and change your commmand to get into the next level.

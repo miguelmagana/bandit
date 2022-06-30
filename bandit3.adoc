@@ -5,6 +5,7 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
 
 == Objective
 *bandit3* has you finding a funky file name again. This time the file name has spaces in the name. If you put a file name with spaces in the name the terminal accepts the different words in the frame each as a file but *cat* will only cat the first file because the list is not delimited. Printing the contents of the directory shows a file with spaces in the file name.

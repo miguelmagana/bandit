@@ -5,6 +5,8 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
 == The Objective
 This level teaches you how to connect to a host using SSH. The directions on level 0 give the instructions for the command needed to SSH into the level 0 machine to get the next level's password.
 

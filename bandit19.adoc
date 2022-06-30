@@ -1,0 +1,26 @@
+= Bandit 19 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== Objective
+The password for *bandit19* is stored in a file *readme* in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
+
+== Get the Flag
+This flag is tricky because it kicks you from the session instantly. The trick to getting this flag is using functionality built into the SSH package that allows you to run commands as an argument in the command that will run instantly as soon as the session starts.
+
+The command changes to this:
+
+ ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"
+
+It is possible to use *sshpass* to complete the same function.
+
+ sshpass -p `cat ~/over-the-wire/bandit/flags/bandit18` ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"
+
+The flag will be displayed in the prompt. To test this functionality with other commands insert "whoami" or "pwd" in at the end of the SSH command to add it as an argument.
+
+Save the flag to your password file and change your SSH command to get into the next level.

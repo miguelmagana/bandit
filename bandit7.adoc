@@ -5,6 +5,8 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
 == Objective
 The *bandit7* flag is a file that is owned by a specific user, and a specific group, and it is 33 bytes in size.
 

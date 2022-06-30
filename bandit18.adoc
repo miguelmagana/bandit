@@ -1,0 +1,22 @@
+= Bandit 18 Writeup
+Miguel Magana <m1k3.0xd@gmail.com>
+v1.0, 2022-06-07
+:toc: auto
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== Objective
+For the *bandit18* flag there are 2 files in the homedirectory: *passwords.old* and *passwords.new*. The password for the next level is in _passwords.new and is the only line that has been changed_ between passwords.old and passwords.new
+
+NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19
+
+== Get the Flag
+This flag is easy enough to find. The level recommends a few commands to sovle the level. One of the commands is the *diff* command which shows you differences between files. The format is simple enough:
+
+ diff password.old password.new
+
+This will produce an ouput with *<* and *>* to signify which file is which. The *<* will represent the left file, or *password.old* and the *>* will represent the *password.new* file. The *>* will be the flag for the next level. 
+
+If you did it correctly you will get the *bye-bye* prompt indicating that you got the corect flag for the next level. Create your password file for *bandit18* and change your command for the next level.

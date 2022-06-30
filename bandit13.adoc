@@ -5,6 +5,8 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
 == Objective
 The flag for *bandit13* is a fun one. It is buried deep. The flag is in a *data.txt* file that is a hex dump that has been repeatedly compressed. The goal is to reverse the hex dump into a file that is usable then determine which file type is left to decompress.
 

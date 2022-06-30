@@ -5,6 +5,8 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
 == Objective
 The password for *bandit16* can be retrieved by submitting the password of the current level to port *30001* on *localhost* using SSL encryption.
 

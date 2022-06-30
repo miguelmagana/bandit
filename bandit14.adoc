@@ -5,6 +5,8 @@ v1.0, 2022-06-07
 
 This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
 
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
 == Objective
 The password for *bandit14* is stored in */etc/bandit_pass/bandit14*
 
