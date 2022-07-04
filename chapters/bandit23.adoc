@@ -27,5 +27,9 @@ You will notice that you can execute the script. It is a Bash script so you can 
 
  bash /etc/cron.d/cronjob_bandit23.sh
 
+or
+
+ sh /etc/cron.d/conjob_bandit23.sh
+
 After running the script you will get a prompt with the temporary file. *cat* that file for the flag for *bandit23*. Create your password file and change your command to get into the next level.
 

@@ -1,0 +1,5 @@
+= Introduction
+
+This war game aims at teaching the fundamentals of playing war games and CTFs against a Linux platform. Basic command line functions and remote connections are used to connect into each machine to find a flag with the password for the next level. Each level using more difficult and advanced techniques or methods. 
+
+Completing these games help you navigate through Linux file systems using the most common commands and tools that are installed by default on most Linux distributions. Using text editors and some scripting to process data to find the flags. This is a great place to start your hacking journey. Work through slowly and thoroughly even when the challenges are difficult. Google is your friend. Research the process and technique not the answer. Take advantage of the hints provided by the Over the Wire team. Have fun! Hacking is can be fun and legal.

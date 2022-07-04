@@ -1,0 +1,59 @@
+= M1k3's Over the Wire - Bandit: A Hacking Guide
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:doctype: book
+:toc: auto
+:sectlinks:
+
+include::chapters/introduction.adoc[]
+
+include::chapters/bandit0.adoc[leveloffset=1]
+
+include::chapters/bandit1.adoc[leveloffset=1]
+
+include::chapters/bandit2.adoc[leveloffset=1]
+
+include::chapters/bandit3.adoc[leveloffset=1]
+
+include::chapters/bandit4.adoc[leveloffset=1]
+
+include::chapters/bandit5.adoc[leveloffset=1]
+
+include::chapters/bandit6.adoc[leveloffset=1]
+
+include::chapters/bandit7.adoc[leveloffset=1]
+
+include::chapters/bandit8.adoc[leveloffset=1]
+
+include::chapters/bandit9.adoc[leveloffset=1]
+
+include::chapters/bandit10.adoc[leveloffset=1]
+
+include::chapters/bandit11.adoc[leveloffset=1]
+
+include::chapters/bandit12.adoc[leveloffset=1]
+
+include::chapters/bandit13.adoc[leveloffset=1]
+
+include::chapters/bandit14.adoc[leveloffset=1]
+
+include::chapters/bandit15.adoc[leveloffset=1]
+
+include::chapters/bandit16.adoc[leveloffset=1]
+
+include::chapters/bandit17.adoc[leveloffset=1]
+
+include::chapters/bandit18.adoc[leveloffset=1]
+
+include::chapters/bandit19.adoc[leveloffset=1]
+
+include::chapters/bandit20.adoc[leveloffset=1]
+
+include::chapters/bandit21.adoc[leveloffset=1]
+
+include::chapters/bandit22.adoc[leveloffset=1]
+
+include::chapters/bandit23.adoc[leveloffset=1]
