@@ -57,3 +57,25 @@ include::chapters/bandit21.adoc[leveloffset=1]
 include::chapters/bandit22.adoc[leveloffset=1]
 
 include::chapters/bandit23.adoc[leveloffset=1]
+
+include::chapters/bandit24.adoc[leveloffset=1]
+
+include::chapters/bandit25.adoc[leveloffset=1]
+
+include::chapters/bandit26.adoc[leveloffset=1]
+
+include::chapters/bandit27.adoc[leveloffset=1]
+
+include::chapters/bandit28.adoc[leveloffset=1]
+
+include::chapters/bandit29.adoc[leveloffset=1]
+
+include::chapters/bandit30.adoc[leveloffset=1]
+
+include::chapters/bandit31.adoc[leveloffset=1]
+
+include::chapters/bandit32.adoc[leveloffset=1]
+
+include::chapters/bandit33.adoc[leveloffset=1]
+
+include::chapters/bandit34.adoc[leveloffset=1]
