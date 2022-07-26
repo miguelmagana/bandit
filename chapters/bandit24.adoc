@@ -1,0 +1,58 @@
+= Bandit 24 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+NOTE: This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
+
+NOTE: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
+
+== Get the Flag
+Similar start to the last challenge we want to see what cron jobs are available for us to manipulate.
+
+ ls -l /etc/cron.d/
+
+You will notice a cron job for *bandit24*. *cat* the cron job to see the functionality. You will notice that it is running a *bandit24* script on reboot and all times.
+
+ cat /usr/bin/cronjob_bandit24.sh
+
+Similar to the last challenge the script is using the *whoami* command substitution to change into a specific folder then it runs an *if* statement to work through data to delete the scripts in the directory. As the notes mentioned you need to create a shell script which will be deleted each time. SAVE IT!
+
+Essentially the cron job is running any script that is in */var/spool/bandit24* directory then it deletes it after 1 minute. The way that we are going to keep our script in the machine is by creating our own tempory folder.
+
+ mkdir /tmp/m1k3
+ chmod 777 /tmp/m1k3
+
+Change the permissions so that everyone can write to the directory.This is the directory where we can write our script until we can run it in the cron folder. 
+
+ /var/spool/bandit24
+
+Change into your temp directory and use your favorite editor to write your script.
+
+ vim get-flag.sh
+
+ #!/bin/bash
+
+ cat /etc/bandit_pass/bandit24 > /tmp/m1k3/flag.txt
+
+Save your file to the temp folder. Check the current system time using *date* command. Give yourself enough time before the cronjob fires off to move your files. At the top of the minute start moving your script to the correct folder.
+
+ cp /tmp/m1k3/get-flag.sh /var/spool/bandit24/
+
+Check the system time again. The script will be deleted from the */var/spool/bandit24/*. Check your temp directory for the flag file.
+
+ ls /tmp/m1k3
+
+If you completed the exchange in time then you will find the flag.txt file with the flag for the next level. Create your password file and change your command to get to the next level.
+

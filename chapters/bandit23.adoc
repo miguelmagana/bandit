@@ -13,15 +13,11 @@ To get the flag for *bandit23* a program is running automatically at regular int
 NOTE: Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.
 
 == Get the Flag
-This one is very similar to the last where you will have to look in */etc/crond.d/* to find multiple cron jobs. Find the one that is labeled for *bandit23*. Check the permissions in order to see what we are allowed to do with the file.
+This one is very similar to the last where you will have to look in */etc/crond.d/* to find multiple cron jobs and scripts that other users have written that everyone has access. Find the one that is labeled for *bandit23*. Check the permissions in order to see what we are allowed to do with the file.
 
  ls -l /etc/cron.d/cronjob_bandit23.sh
 
-Using Vim you can view the code to see that running the script copies the password to a file for you.
-
- vim /etc/cron.d/cronjob_bandit23.sh
-
- :q! # To quite without saving
+ cat /etc/cron.d/cronjob_bandit23.sh
 
 You will notice that you can execute the script. It is a Bash script so you can run it using normal Bash commands.
 
@@ -31,5 +27,31 @@ or
 
  sh /etc/cron.d/conjob_bandit23.sh
 
-After running the script you will get a prompt with the temporary file. *cat* that file for the flag for *bandit23*. Create your password file and change your command to get into the next level.
+After running the script you will get a prompt with the temporary file. *cat* that file for the flag of *bandit22*. 
+
+Similar to the cronjob for *bandit22* the script is creating an md5sum of the phrase which is the hash value to the temporary file location that the flag is in.
+
+ cat /usr/bin/cronjob_bandit23.sh
+
+Recreate the script in the CLI to get an idea of what we can change.
+
+ myname=$(whoami)
+ mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+The script first creates a variable using the *whoami* command subsitution which gives you the name of *bandit22*
+
+ echo $myname
+
+The second line is taking that name creating an md5 hash using the phrase "I am user $myname" and cleaning it up to get a clean hash value.
+
+ echo $mytarget
+
+From here you can tell that the cronjob is essentially echoing "I am user bandit23" into the md5sum to get the hashvalue.
+
+ echo "I am user bandit23" | md5sum | cut -d ' ' -f 1
+
+This command will do the same function as the cronjob but uses *bandit23* in the variable position to create the correct hash value for the */tmp/<hash value>* location of *bandit23* flag. Create your password file and change your command to go to the next level.
+
+
+
 

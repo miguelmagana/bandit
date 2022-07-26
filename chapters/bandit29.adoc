@@ -1,0 +1,40 @@
+= Bandit 29 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+There is a git repository at *ssh://bandit28-git@localhost/home/bandit28-git/repo*. The password for the user *bandit28-git* is the same as for the user *bandit28*.
+
+Clone the repository and find the password for the next level. But wait...the README.md file is blank in the password field. This does not help us. Another idea is that there are more files or folders.
+
+ ls -la repos/
+
+There we go! We found a hidden .git file that has all kinds of good information. Now that we know we have a .git directory we can use Git commands to gather more data.
+
+ git log
+
+You will notice that there are some commits. One commit shows the leaked password change so we know that one of the other commits has the password. Using the *-p* and *-1* to show the difference and only one line. The flag for the *bandit29* is shown in the differnce. Create your password file and change your command to get into the next level.
+
+== Get the Flag
+Similar to the previous level *git clone* is going to be our friend. Remeber to *cat* the password for *bandit28* to copy and paste.
+
+ mkdir /tmp/m1k3
+ cd /tmp/m1k3
+
+ cat /etc/bandit_pass/bandit28
+
+Clone the repo into your temporary directory.
+
+ git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+
+*ls* the repo to see the files that you are dealing with.
+

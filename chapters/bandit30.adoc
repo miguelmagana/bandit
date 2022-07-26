@@ -1,0 +1,44 @@
+= Bandit 30 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+There is a git repository at *ssh://bandit29-git@localhost/home/bandit29-git/repo*. The password for the user *bandit29-git* is the same as for the user *bandit29*.
+
+Clone the repository and find the password for the next level.
+
+== Get the Flag
+Similar to the previous level you have to clone a repo to work out of to find the next flag.
+
+ mkdir /tmp/m1k3
+ cd /tmp/m1k3
+
+ cat /etc/bandit_pass/bandit29
+
+ git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+
+ cd repo/
+
+Following some of the same workflow as the previous level *ls -la* the directory to see the hidden files. There is a .git directory to look through for more information.
+
+ git log -p
+
+Will show you the differences in the commits. Still no change in the password field. The second commit changes the username. We can use the *git show* and the commit number to see that specific commit. We couldn't find a password in those commits. The README mentions *no password in production* which is the keyword. We are still working in Git but we also need to check the branches.
+
+ git branch -a
+
+Will list all of the available branches. We will have to enumerate through the branch commits by checking out each branch and finding the flag.
+
+Select the next branch in line and *git show -p* each branch to see the difference. Fortunately the next branch down has the flag. Create your password file and change your command for the next level.
+
+
+

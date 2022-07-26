@@ -1,0 +1,34 @@
+= Bandit 33 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+After all this git stuff its time for another escape. Good luck!
+
+== Get the Flag
+Once logged into the machine through SSH you get a message that says "WELCOME TO THE UPPERCASE SHELL." If you try to use any of your normal commands like *ls* nothing happens. You get an error *sh: 1: ls: not found* which means that the shell is converting all of the commands to uppercase. You get the same error if you use *LS.*
+
+The reason for this is because the terminal is initialized which put us into an interactive mode. In order to return to the shell we use *positional parameters* to return us to the shell again.
+
+For example:
+
+ ./myscript.sh $1 $2
+
+The script itself is in position $0, your script command is in position $1, and the next command would be in position $2. If you were using this script within another script you would use those parameters to feed the script certain commands. In this case we are using the $0 to return us to the regular shell.
+
+ $0
+
+This will give you a regular *$* instead of the interactive *>>.* From here we can use regular Linux commands to cat out our flag.
+
+ cat /etc/bandit_pass/bandit32
+
+Create your password file and change your commands to get into the next level.

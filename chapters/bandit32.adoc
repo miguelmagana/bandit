@@ -1,0 +1,50 @@
+= Bandit 32 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+There is a git repository at *ssh://bandit31-git@localhost/home/bandit31-git/repo*. The password for the user *bandit31-git* is the same as for the user *bandit31*.
+
+Clone the repository and find the password for the next level.
+
+== Get the Flag
+This time we are working in a git repo where we have to push a file to a remote repository. First of *cat /etc/bandit_pass/bandit31* to print the flag to the terminal. You will need this password to SSH download the repo.
+
+Now make a temporary directory to work out of using the *mkdir* command and navigate into this directory.
+
+ mkdir m1k3
+ cd m1k3
+ 
+Now you can clone the repo into your directory to start poking at it.
+
+ git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+
+Copy and paste the flag from earlier to start the download. *cat* the README.md file and there is the hint that says you have to push a file to the remote repo with some details.
+
+ Details:
+    File name: key.txt
+    Content: 'May I come in?'
+    Branch: master
+
+I guess we follow the instructions. Within the *repo* directory create the *key.txt* file using nano or vim. Within the file input the text required *'May I come in?'* and save the file. Now we have to add the file so that we can commit it to the repo.
+
+ git add key.txt
+
+When you run this command you get an error message that says you have a *.gitignore* that is ingoring the paths and use *-f* if you really want to add it. I tried this and nothing happened. My next idea was to remove the *.gitignore* file because it is what is causing the problem.
+
+ rm .gitignore
+
+Once you remove the .gitignore file you can add and commit the file again. This time the add and commit will work fine. Now we can push the changes to the remote repo.
+
+ git push origin master
+
+You will get a git message that includes the flag for the next level. Create your password file and change your command to enter the next level.

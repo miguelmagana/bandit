@@ -1,0 +1,47 @@
+= Bandit 26 Writeup
+:author: Miguel Magana
+:email:  m1k3.0xd@gmail.com
+:revnumber: v1.0 
+:revdate: 2022-06-07
+:revremark: First draft
+:toc: auto
+
+
+This is a writeup for the Over the Wire Bandit wargame. This writeup will guide you through each level to teach CTF/Wargame basics.
+
+WARNING: DO NOT SHARE THE FLAG ONCE FOUND
+
+== The Objective
+Logging in to *bandit26* from *bandit25* should be fairly easy. The shell for user *bandit26* is not */bin/bash*, but something else. Find out what it is, how it works and how to break out of it.
+
+NOTE: I cannot take credit for this challenge. I had to look it up because it was not a common method of navigating and working through an application that is capable of working like a terminal.
+
+== Get the Flag
+As the challenge hint states *bandit26* does not use Bash as the shell. If you *cat /etc/passwd* and grep for *bandit26* to see which shell *bandit26* uses.
+
+ cat /etc/passwd | grep bandit26
+
+Google the shell to get information on how to use it. You will find that there is no shell call *showtext*. If you *cat* the */bin/showtext* to see code. This code is using the *more* command on a file.
+
+Check the files in the home directory and you see you are provided an SSH key. If you try to SSH using the key you get kicked out instantly.
+This was the outside the box part of the challenge and I still do not know why this works this way but in order to get the *more* command to fire in the script you have to minimize the size of your terminal window to a very small size. Small to the point you can barely see the SSH command that you are putting into the line.
+
+ ssh bandit26@localhost -i bandit26.sshkey
+
+If you resized enough you will notice that the file opens in Vim with the *more* option selected. Now that we have it in *more* with the file open you press *v* to open the file in Vim.
+
+Vim is fancy and lets you fun commands within the editor. This is how we will access the password file and change the variable to get a shell. We will open the flag using Vim commands. Be sure to hit escape to get into command mode in Vim.
+
+ :e /etc/bandit_pass/bandit26
+
+The flag for *bandit26* will be displayed in Vim. Copy the flag and creat your password file for the next level. Now that you have the flag you can leave here but when you SSH you will still get kicked out because there *bandit26* is not using a shell still because the *shell* variable is set to the file that we had to use weird *move* to see.
+
+Vim has a shell by using *:shell* command. Using this doesn't put you into a shell because the variable is not changed. This or pressing enter puts you back into *more* and does not give you a shell. For this we will set the variable using Vim by setting the variable to */bin/bash*.
+
+ :set shell=/bin/bash
+
+Now run the *:shell* command and you will get a real shell for bandit26.
+
+WARNING: DO NOT CLOSE YOUR SHELL. You will need it to get into the next level.
+
+When you SSH back into *bandit26* you wil have to get back into the shell following the same steps.
